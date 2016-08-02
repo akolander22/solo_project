@@ -1,10 +1,15 @@
-<h1>Search</h1>
-<div class="input searchBar">
-  <input type="text" ng-model="lookup.entry" placeholder="Enter Tv Show" />
-  <button ng-click="lookup.findData()">Search</button>
+<div class="container">
+
+  <h1>Search</h1>
+    <div class="input searchBar">
+      <input type="text" ng-model="lookup.entry" placeholder="Enter Tv Show" />
+      <button class="btn btn-primary" ng-click="lookup.findData()">Search</button>
+    </div>
+    <div ng-repeat="image in lookup.showImage track by $index">
+      <img src="{{image}}" class="img-thumbnail" width="200" height="200"/>
+        <strong>{{lookup.showName[$index]}}</strong>
+        <!-- Summary{{lookup.showSum[$index]}}<br /> -->
+      <button class="btn btn-info"ng-click="lookup.addToMyShows()" ng-disabled="lookup.myShows.isDisabled">Add to My Shows</button>
+    </div>
+
 </div>
-  <div ng-repeat="image in lookup.showImage track by $index">
-    <img src="{{image}}" class="img-thumbnail" width="200" height="200"/>
-    {{lookup.showName[$index]}}
-    <button ng-click="lookup.addToMyShows()" ng-disabled="lookup.showName.isDisabled">Add to My Shows</button>
-  </div>

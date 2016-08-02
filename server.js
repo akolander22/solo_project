@@ -10,6 +10,7 @@ var mongoose = require('mongoose');
 var User = require('./models/user');
 var login = require('./routes/login');
 var register = require('./routes/register');
+var showRouter = require('./routes/show');
 
 var app = express();
 
@@ -28,6 +29,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 app.use('/login', login);
 app.use('/register', register);
+app.use('/show', showRouter);
 
 app.get('/', function(request, response){
   response.sendFile(path.join(__dirname, 'public/views/index.html'));

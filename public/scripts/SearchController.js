@@ -10,13 +10,31 @@ angular.module('tvApp').controller('SearchController', function($http){
       vm.info = response.data;
       console.log(vm.info);
       vm.showImage = [];
-      vm.showName = []
+      vm.showName = [];
+      vm.showSum = [];
+      var sendData = {};
       for (var i = 0; i < response.data.length; i++) {
-        vm.showImage.push(response.data[i].show.image.original);
-        vm.showName.push(response.data[i].show.name)
-        // console.log(vm.showName);
+        if(response.data[i].show.image != null){
+          vm.showImage.push(response.data[i].show.image.original);
+        } else {
+          vm.showImage.push('assets/download.jpeg')
+
+        }
+        vm.showName.push(response.data[i].show.name);
+                // console.log(vm.showName);
         // console.log(vm.showImage);
+        // vm.showSum.push(response.data[i].show.summary);
+        // console.log(vm.showSum);
       }
+      console.log(vm.showName);
+
+    // $http.post('/show/createdShow', sendData).then(function(response){
+    //   console.log(response);
+    // }, function(response){
+    //   console.log('Fail');
+    // })
+
+
     });
     vm.addToMyShows = function(){
       vm.isDisabled = true;
