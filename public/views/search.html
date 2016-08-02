@@ -2,7 +2,7 @@
 
   <h1>Search</h1>
     <div class="input searchBar">
-      <input type="text" ng-model="lookup.entry" placeholder="Enter Tv Show" />
+      <input class="form-control input-lg" type="text" ng-model="lookup.entry" placeholder="Enter Tv Show" />
       <button class="btn btn-primary" ng-click="lookup.findData()">Search</button>
     </div>
     <div ng-repeat="image in lookup.showImage track by $index">
