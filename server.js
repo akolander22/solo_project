@@ -6,14 +6,16 @@ var session = require('express-session');
 var LocalStrategy = require('passport-local').Strategy;
 var mongoose = require('mongoose');
 
-
+//routes and models
 var User = require('./models/user');
+var Show = require('./models/show');
 var login = require('./routes/login');
 var register = require('./routes/register');
 var showRouter = require('./routes/show');
 
 var app = express();
 
+//session password
 app.use(session({
   secret: 'whirlypop',
   key: 'user',
@@ -31,10 +33,19 @@ app.use('/login', login);
 app.use('/register', register);
 app.use('/show', showRouter);
 
+
+//when logging out clears logged in info and sends to root
+app.get('/logout', function(request, response){
+  console.log('Logging out');
+  request.session.destroy();
+  request.logout();
+  response.redirect('/');
+})
+
+//gives base html page
 app.get('/', function(request, response){
   response.sendFile(path.join(__dirname, 'public/views/index.html'));
 })
-
 
 //passport for username and passwords
 passport.use('local', new LocalStrategy({

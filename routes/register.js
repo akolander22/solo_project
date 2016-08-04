@@ -3,9 +3,9 @@ var path = require('path');
 
 var User = require('../models/user');
 
-router.get('/', function(request, response){
-  response.sendFile(path.join(__dirname, '../public/views/index.html'));
-});
+// router.get('/', function(request, response){
+//   response.sendFile(path.join(__dirname, '../public/views/index.html'));
+// });
 
 
 router.post('/', function(request, response){

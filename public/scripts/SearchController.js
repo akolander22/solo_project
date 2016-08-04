@@ -1,6 +1,6 @@
-angular.module('tvApp').controller('SearchController', function($http){
+angular.module('tvApp').controller('SearchController', function($http,$rootScope){
   var vm = this;
-  vm.isDisabled = false;
+  // vm.isDisabled = false;
   vm.myShows = [];
 
 
@@ -12,33 +12,37 @@ angular.module('tvApp').controller('SearchController', function($http){
       vm.showImage = [];
       vm.showName = [];
       vm.showSum = [];
-      var sendData = {};
+      vm.showRuntime = [];
       for (var i = 0; i < response.data.length; i++) {
         if(response.data[i].show.image != null){
           vm.showImage.push(response.data[i].show.image.original);
         } else {
           vm.showImage.push('assets/download.jpeg')
-
         }
         vm.showName.push(response.data[i].show.name);
-                // console.log(vm.showName);
+        // console.log(vm.showName);
         // console.log(vm.showImage);
         // vm.showSum.push(response.data[i].show.summary);
+        vm.showRuntime.push(response.data[i].show.runtime);
         // console.log(vm.showSum);
       }
       console.log(vm.showName);
 
-    // $http.post('/show/createdShow', sendData).then(function(response){
-    //   console.log(response);
-    // }, function(response){
-    //   console.log('Fail');
-    // })
-
 
     });
-    vm.addToMyShows = function(){
-      vm.isDisabled = true;
-      console.log('Clicked');
+    vm.addToMyShows = function(showName){
+      // vm.isDisabled = true;
+      console.log('Clicked', showName);
+      var sendData = {};
+      sendData.showName = showName;
+
+      console.log(sendData);
+      $http.post('/show/createdShow', sendData).then(function(response){
+        console.log('Success', response);
+      }, function(response){
+        console.log('Fail');
+      })
+
     }
   }
 })

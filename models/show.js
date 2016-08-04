@@ -3,7 +3,6 @@ var Schema = mongoose.Schema;
 
 var showSchema = new Schema({
   showName: String
-
 })
 
 var Show = mongoose.model('Show', showSchema);

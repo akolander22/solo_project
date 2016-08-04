@@ -3,12 +3,14 @@ var Schema = mongoose.Schema;
 var bcrypt = require('bcrypt');
 var SALT_WORK_FACTOR = 10;
 
-
+//establishes user is username and password, required unique username
 var UserSchema = new Schema({
    username: { type: String, required: true, index: { unique: true } },
    password: { type: String, required: true }
 });
 
+
+//saves the password to database after hashing
 UserSchema.pre('save', function(next){
   var user = this;
   if(user.isModified('password') == false){
@@ -25,6 +27,7 @@ UserSchema.pre('save', function(next){
 
 })
 
+//compares password in data base to entered password to allow access
 UserSchema.methods.comparePassword = function(candidatePassword, cb) {
     var user = this;
 

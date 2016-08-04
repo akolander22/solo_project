@@ -1,8 +1,6 @@
-angular.module('tvApp').controller('NavbarController', function($http, $location){
+angular.module('tvApp').controller('NavbarController', function($http){
   var vm = this;
 
-  vm.isActive = function(viewLocation){
-    return viewLocation === $location.path();
-  };
+
 
 });

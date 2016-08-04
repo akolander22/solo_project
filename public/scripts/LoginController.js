@@ -1,8 +1,9 @@
-angular.module('tvApp').controller('LoginController', function($http, $location){
+angular.module('tvApp').controller('LoginController', function($http, $location,$rootScope){
   var vm = this;
 
   vm.username = '';
   vm.password = '';
+  $rootScope.loggedIn = false;
 
   vm.login = function(){
     console.log('Username', vm.username);
@@ -17,6 +18,8 @@ angular.module('tvApp').controller('LoginController', function($http, $location)
 
   function handleSuccess(response){
     console.log('Success', response);
+    $rootScope.username = vm.username;
+    $rootScope.loggedIn = true;
     $location.path('/search');
   };
 

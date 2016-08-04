@@ -10,6 +10,10 @@ angular.module('tvApp').config(function($routeProvider, $locationProvider){
     controller: 'LoginController',
     controllerAs: 'login'
   })
+  .when('/logout', {
+    templateUrl: 'views/login.html',
+    controller: 'LogoutController'
+  })
   .when('/register', {
     templateUrl: 'views/register.html',
     controller: 'RegisterController',
@@ -20,19 +24,22 @@ angular.module('tvApp').config(function($routeProvider, $locationProvider){
     controller: 'SearchController',
     controllerAs: 'lookup'
   })
-  .when('/profile', {
-    templateUrl: 'views/profile.html',
-    controller: 'ProfileController',
-    controllerAs: 'profile'
-  })
   .when('/progress', {
     templateUrl: 'views/progress.html',
     controller: 'ProgressController',
     controllerAs: 'progress'
   })
+  .when('/myshows', {
+    templateUrl: 'views/myshows.html',
+    controller: 'MyShowsController',
+    controllerAs: 'myshows'
+  })
   .when('/failure', {
     templateUrl: 'views/nope.html',
   })
+  // .otherwise({
+  //   redirectTo: '/login'
+  // })
 
 
 
