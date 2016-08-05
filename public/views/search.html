@@ -3,14 +3,16 @@
   <h1>Search</h1>
     <div class="input searchBar">
       <input class="form-control input-lg" type="text" ng-model="lookup.entry" placeholder="Enter Tv Show" />
+      <br />
       <button class="btn btn-primary" ng-click="lookup.findData()">Search</button>
     </div>
-    <div ng-repeat="image in lookup.showImage track by $index">
+    <div ng-repeat="item in lookup.showArray track by $index">
       <br />
-      <img src="{{image}}" class="img-thumbnail" width="200" height="200"/>
-        <strong>{{lookup.showName[$index]}}</strong>
-        <!-- <h2>Summary</h2>{{lookup.showSum[$index]}}<br /> -->
-      <button class="btn btn-success"ng-click="lookup.addToMyShows(lookup.showName[$index])">Add to My Shows</button>
+      <img src="{{item.image}}" class="img-thumbnail" width="200" height="200"/>
+        <strong>{{item.name}}</strong>
+        <h2>Summary</h2><p ng-bind-html="item.summary">
+        </p>
+      <button class="btn btn-success" ng-click="lookup.addToMyShows(item)">Add to My Shows</button>
     </div>
 
 </div>

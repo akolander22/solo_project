@@ -1,13 +1,19 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var bcrypt = require('bcrypt');
+var show = require('./show').schema;
+
+
 var SALT_WORK_FACTOR = 10;
 
 //establishes user is username and password, required unique username
 var UserSchema = new Schema({
    username: { type: String, required: true, index: { unique: true } },
-   password: { type: String, required: true }
+   password: { type: String, required: true },
+  //  shows: [{ showName: String, required: false}]
+   shows: [show]
 });
+
 
 
 //saves the password to database after hashing

@@ -8,3 +8,13 @@ body {
   width: 300px;
   height: 150px;
 }
+.username {
+  margin-top: 20px;
+  color: #00BFFF;
+}
+.profile {
+  margin-top: 5px;
+}
+.logging {
+  margin-top: 5px;
+}

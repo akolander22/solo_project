@@ -8,10 +8,10 @@ var mongoose = require('mongoose');
 
 //routes and models
 var User = require('./models/user');
-var Show = require('./models/show');
 var login = require('./routes/login');
 var register = require('./routes/register');
 var showRouter = require('./routes/show');
+var Show = require('./models/show');
 
 var app = express();
 

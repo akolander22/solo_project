@@ -8,34 +8,41 @@ angular.module('tvApp').controller('SearchController', function($http,$rootScope
     // console.log(vm.entry);
     $http.get("http://api.tvmaze.com/search/shows?q=" + vm.entry).then(function(response){
       vm.info = response.data;
-      console.log(vm.info);
-      vm.showImage = [];
-      vm.showName = [];
-      vm.showSum = [];
-      vm.showRuntime = [];
+      // console.log(vm.info);
+      vm.showArray = [];
       for (var i = 0; i < response.data.length; i++) {
+        var tempShow = {};
         if(response.data[i].show.image != null){
-          vm.showImage.push(response.data[i].show.image.original);
+          tempShow.image = response.data[i].show.image.original;
         } else {
-          vm.showImage.push('assets/download.jpeg')
+          tempShow.image = 'assets/download.jpeg';
         }
-        vm.showName.push(response.data[i].show.name);
-        // console.log(vm.showName);
-        // console.log(vm.showImage);
-        // vm.showSum.push(response.data[i].show.summary);
-        vm.showRuntime.push(response.data[i].show.runtime);
-        // console.log(vm.showSum);
+
+        tempShow.name = response.data[i].show.name;
+        tempShow.runtime = response.data[i].show.runtime;
+        tempShow.summary = response.data[i].show.summary;
+        tempShow.status = response.data[i].show.status;
+        tempShow.url = response.data[i].show.url;
+        tempShow.premiered = response.data[i].show.premiered;
+        vm.showArray.push(tempShow);
       }
-      console.log(vm.showName);
+      // console.log(vm.showArray);
+      // console.log(vm.searchedShows);
+      // console.log(vm.showName);
 
 
     });
-    vm.addToMyShows = function(showName){
+    vm.addToMyShows = function(item){
       // vm.isDisabled = true;
-      console.log('Clicked', showName);
+      console.log('Clicked', item);
       var sendData = {};
-      sendData.showName = showName;
-
+      sendData.showName = item.name;
+      sendData.runtime = item.runtime;
+      sendData.summary = item.summary;
+      sendData.status = item.status;
+      sendData.url = item.url;
+      sendData.premiered = item.premiered;
+      // $rootScope.showName = showName;
       console.log(sendData);
       $http.post('/show/createdShow', sendData).then(function(response){
         console.log('Success', response);

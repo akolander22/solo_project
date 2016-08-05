@@ -1,1 +1,1 @@
-angular.module('tvApp', ['ngRoute']);
+angular.module('tvApp', ['ngRoute', 'ngSanitize']);
