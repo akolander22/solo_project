@@ -20,6 +20,7 @@ angular.module('tvApp').controller('LoginController', function($http, $location,
     console.log('Success', response);
     $rootScope.username = vm.username;
     $rootScope.loggedIn = true;
+
     $location.path('/search');
   };
 

@@ -3,13 +3,13 @@ var path = require('path');
 
 var User = require('../models/user');
 
-// router.get('/', function(request, response){
-//   response.sendFile(path.join(__dirname, '../public/views/index.html'));
-// });
+router.get('/', function(request, response){
+  response.sendFile(path.join(__dirname, '../public/views/register.html'));
+});
 
 
 router.post('/', function(request, response){
-  User.create(request.body, function(err){
+  User.create(request.body.username, request.body.password, function(err){
     if(err){
       console.log(err);
       response.sendStatus(500);

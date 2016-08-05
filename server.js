@@ -57,11 +57,9 @@ passport.use('local', new LocalStrategy({
       if (err) {
          throw err
       };
-
       if (!user) {
         return done(null, false, {message: 'Incorrect username and password.'});
       }
-
       // test a matching password
       user.comparePassword(password, function(err, isMatch) {
         if (err) {

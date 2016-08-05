@@ -18,3 +18,21 @@ body {
 .logging {
   margin-top: 5px;
 }
+.newShow {
+  background-color: #DCDCDC;
+  margin-top: 5px;
+  display: block;
+  padding: 5px;
+  border-radius: 2%;
+}
+.newShow img {
+  width: 25%;
+  height: 300px;
+}
+.newShow p {
+  display: inline-block;
+}
+.myShows img {
+  width: 25%;
+  height: 300px;
+}

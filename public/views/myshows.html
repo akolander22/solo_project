@@ -1,11 +1,15 @@
-<h1>MyShows</h1>
-<div>
+
+<!-- {{username}} -->
+<h1>{{username}}'s Shows</h1>
+<div class="myShows">
   <h2>Shows I'm Watching</h2>
-    <ul>
-      List of Shows
+    <ul ng-repeat="myShow in myshows.showsList">
       <li>
-        Blah
+        {{myShow.showName}}
+        <br />
+        <img ng-src="{{myShow.image}}" class="img-thumbnail"/>
         <h5>Progress Bars here</h5>
+        <button class="btn btn-success" ng-click="">Add Episodes</button>
       </li>
     </ul>
 </div>

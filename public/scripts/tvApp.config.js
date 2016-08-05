@@ -11,7 +11,7 @@ angular.module('tvApp').config(function($routeProvider, $locationProvider){
     controllerAs: 'login'
   })
   .when('/logout', {
-    templateUrl: 'views/login.html',
+    templateUrl: 'views/logout.html',
     controller: 'LogoutController'
   })
   .when('/register', {

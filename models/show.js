@@ -7,7 +7,8 @@ var showSchema = new Schema({
   runtime: Number,
   status: String,
   url: String,
-  premiered: String
+  premiered: String,
+  image: String,
 });
 
 var Show = mongoose.model('Show', showSchema);

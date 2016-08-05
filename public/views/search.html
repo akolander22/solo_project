@@ -5,13 +5,13 @@
       <input class="form-control input-lg" type="text" ng-model="lookup.entry" placeholder="Enter Tv Show" />
       <br />
       <button class="btn btn-primary" ng-click="lookup.findData()">Search</button>
-    </div>
-    <div ng-repeat="item in lookup.showArray track by $index">
       <br />
-      <img src="{{item.image}}" class="img-thumbnail" width="200" height="200"/>
-        <strong>{{item.name}}</strong>
-        <h2>Summary</h2><p ng-bind-html="item.summary">
-        </p>
+    </div>
+    <div ng-repeat="item in lookup.showArray track by $index" class="newShow">
+      <h3>{{item.name}}</h3>
+      <br />
+      <img ng-src="{{item.image}}" class="img-thumbnail"/>
+      <h4>Summary</h4><p ng-bind-html="item.summary"></p>
       <button class="btn btn-success" ng-click="lookup.addToMyShows(item)">Add to My Shows</button>
     </div>
 

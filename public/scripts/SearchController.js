@@ -1,11 +1,8 @@
 angular.module('tvApp').controller('SearchController', function($http,$rootScope){
   var vm = this;
   // vm.isDisabled = false;
-  vm.myShows = [];
-
 
   vm.findData = function(){
-    // console.log(vm.entry);
     $http.get("http://api.tvmaze.com/search/shows?q=" + vm.entry).then(function(response){
       vm.info = response.data;
       // console.log(vm.info);
@@ -34,7 +31,7 @@ angular.module('tvApp').controller('SearchController', function($http,$rootScope
     });
     vm.addToMyShows = function(item){
       // vm.isDisabled = true;
-      console.log('Clicked', item);
+      // console.log('Clicked', item);
       var sendData = {};
       sendData.showName = item.name;
       sendData.runtime = item.runtime;
@@ -42,6 +39,7 @@ angular.module('tvApp').controller('SearchController', function($http,$rootScope
       sendData.status = item.status;
       sendData.url = item.url;
       sendData.premiered = item.premiered;
+      sendData.image = item.image;
       // $rootScope.showName = showName;
       console.log(sendData);
       $http.post('/show/createdShow', sendData).then(function(response){
