@@ -18,21 +18,39 @@ body {
 .logging {
   margin-top: 5px;
 }
+.showHeader {
+  background-color: #ff8c00;
+  padding: 1px;
+}
+.showHeader h3 {
+  margin-left: 5px;
+}
 .newShow {
-  background-color: #DCDCDC;
+  background-color: #f8f8ff ;
   margin-top: 5px;
   display: block;
   padding: 5px;
-  border-radius: 2%;
+  border: 4px solid black;
+
+  background: rgb(216, 221, 225);
+
+  -moz-box-shadow:  25px 24px 45px 0px rgb(128,128,128);
+  -webkit-box-shadow:  25px 24px 45px 0px rgb(128,128,128);
+  box-shadow:  25px 24px 45px 0px rgb(128,128,128);
+
+
 }
 .newShow img {
-  width: 25%;
+  width: 22%;
   height: 300px;
 }
 .newShow p {
   display: inline-block;
 }
 .myShows img {
-  width: 25%;
+  width: 20%;
   height: 300px;
+}
+.progress {
+  width: 35%;
 }

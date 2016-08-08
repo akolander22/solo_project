@@ -41,7 +41,7 @@ UserSchema.methods.comparePassword = function(candidatePassword, cb) {
         console.log(err);
         cb(err, isMatch);
       } else {
-      console.log('isMatch', isMatch);
+      // console.log('isMatch', isMatch);
       cb(null, isMatch);
     };
   })

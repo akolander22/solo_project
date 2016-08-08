@@ -9,9 +9,10 @@ router.get('/', function(request, response){
 
 
 router.post('/', function(request, response){
-  User.create(request.body.username, request.body.password, function(err){
+  console.log('Requested register!!!', new Date());
+  User.create(request.body, function(err){
     if(err){
-      console.log(err);
+      console.log('HERE', err);
       response.sendStatus(500);
     } else {
       response.redirect('/');

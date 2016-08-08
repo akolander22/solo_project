@@ -8,8 +8,10 @@
       <br />
     </div>
     <div ng-repeat="item in lookup.showArray track by $index" class="newShow">
-      <h3>{{item.name}}</h3>
-      <br />
+      <div class="showHeader">
+              <h3>{{item.name}}</h3>
+      </div>
+      <!-- <br /> -->
       <img ng-src="{{item.image}}" class="img-thumbnail"/>
       <h4>Summary</h4><p ng-bind-html="item.summary"></p>
       <button class="btn btn-success" ng-click="lookup.addToMyShows(item)">Add to My Shows</button>

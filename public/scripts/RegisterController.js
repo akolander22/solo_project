@@ -1,7 +1,8 @@
-angular.module('tvApp').controller('RegisterController', function($http){
+angular.module('tvApp').controller('RegisterController', function($http, $location){
   var vm = this;
 
   vm.register = function(){
+    console.log('CALLED RED CON 1');
     var sendData = {};
 
     sendData.username = vm.username;

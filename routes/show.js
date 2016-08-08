@@ -27,7 +27,10 @@ router.post('/createdShow', function(request,response){
     status: data.status,
     url: data.url,
     premiered: data.premiered,
-    image: data.image
+    image: data.image,
+    episodesWatched: 0,
+    totalEpisodes: data.totalEpisodes,
+    tvMazeId: data.tvMazeId
   })
 
 //saves shows into a users 'collection'
@@ -54,7 +57,15 @@ router.post('/createdShow', function(request,response){
 
 router.get('/findId', function(request, response){
   var id = request.user._id;
+  var user = request.user;
   // console.log('id is', id);
+  response.send(user);
+
+})
+router.get('/editEpisodes', function(request,response){
+  var id = request.user._id;
+
+
 
   User.findById(id, function(err, user){
     if(err){

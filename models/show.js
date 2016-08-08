@@ -9,6 +9,9 @@ var showSchema = new Schema({
   url: String,
   premiered: String,
   image: String,
+  episodesWatched: Number,
+  totalEpisodes: Number,
+  tvMazeId: Number
 });
 
 var Show = mongoose.model('Show', showSchema);

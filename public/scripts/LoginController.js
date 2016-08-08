@@ -6,7 +6,7 @@ angular.module('tvApp').controller('LoginController', function($http, $location,
   $rootScope.loggedIn = false;
 
   vm.login = function(){
-    console.log('Username', vm.username);
+    // console.log('Username', vm.username);
 
     var sendData = {};
 
@@ -17,7 +17,7 @@ angular.module('tvApp').controller('LoginController', function($http, $location,
   };
 
   function handleSuccess(response){
-    console.log('Success', response);
+    // console.log('Success', response);
     $rootScope.username = vm.username;
     $rootScope.loggedIn = true;
 

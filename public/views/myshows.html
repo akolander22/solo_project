@@ -3,13 +3,25 @@
 <h1>{{username}}'s Shows</h1>
 <div class="myShows">
   <h2>Shows I'm Watching</h2>
-    <ul ng-repeat="myShow in myshows.showsList">
+    <ul ng-repeat="oneshow in myshows.showsList">
       <li>
-        {{myShow.showName}}
-        <br />
-        <img ng-src="{{myShow.image}}" class="img-thumbnail"/>
-        <h5>Progress Bars here</h5>
-        <button class="btn btn-success" ng-click="">Add Episodes</button>
+        <h4>{{oneshow.showName}}</h4>
+        <div class="episode-content">
+          <img ng-hide="true" ng-src="{{oneshow.image}}" class="img-thumbnail"/>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="{{oneshow.totalEpisodes}}" style="width:{{100*(oneshow.episodesWatched/oneshow.totalEpisodes)}}%">
+            </div>
+          </div>
+            <h5>Episodes Watched</h5>
+          {{oneshow.episodesWatched}}
+          <button class="btn btn-success" ng-click="myshows.add(oneshow)">+</button>
+          <button class="btn btn-danger" ng-click="myshows.subtract(oneshow)">-</button>
+          <button class="btn btn-warning" ng-click="myshows.saveToMyDb(oneshow)">Save</button>
+          <div class="episodes">
+            <h5>Total Episodes: {{oneshow.totalEpisodes}}</h5>
+            <br />
+          </div>
+        </div>
       </li>
     </ul>
 </div>
