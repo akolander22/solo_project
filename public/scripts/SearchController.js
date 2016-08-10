@@ -22,6 +22,7 @@ angular.module('tvApp').controller('SearchController', function($http,$rootScope
           tempShow.url = response.data[i].show.url;
           tempShow.premiered = response.data[i].show.premiered;
           tempShow.tvMazeId = response.data[i].show.id;
+          tempShow.network = response.data[i].show.network.name;
           vm.showArray.push(tempShow);
       }
     });
@@ -39,7 +40,8 @@ angular.module('tvApp').controller('SearchController', function($http,$rootScope
     sendData.image = item.image;
     sendData.tvMazeId = item.tvMazeId;
     sendData.totalEpisodes = item.totalEpisodes;
-    console.log(sendData);
+    sendData.network = item.network;
+    // console.log(sendData);
 
     $http.get('http://api.tvmaze.com/shows/' + item.tvMazeId + '?embed=episodes').then(function(response){
       // console.log(response.data._embedded.episodes);

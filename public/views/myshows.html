@@ -3,7 +3,7 @@
 <h1>{{username}}'s Shows</h1>
 <div class="myShows">
   <h2>Shows I'm Watching</h2>
-    <ul ng-repeat="oneshow in myshows.showsList">
+    <ul ng-repeat="oneshow in myshows.currentShowsList">
       <li>
         <h4>{{oneshow.showName}}</h4>
         <div class="episode-content">
@@ -25,6 +25,9 @@
       </li>
     </ul>
 </div>
-<div>
+<div class="completedShows">
   <h2>Completed Shows</h2>
+    <div ng-repeat="singleshow in myshows.caughtUpShowsList">
+      <img ng-src="{{singleshow.image}}" class="completeImage" />
+    </div>
 </div>

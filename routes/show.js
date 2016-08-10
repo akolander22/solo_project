@@ -2,18 +2,6 @@ var router = require('express').Router();
 var User = require('../models/user');
 var Show = require('../models/show').model;
 
-//had this but pretty sure it does nothing
-// router.get('/', function(request,response){
-//   Show.find({}, function(err, users){
-//     if(err){
-//       console.log(err);
-//       response.sendStatus(500);
-//     } else {
-//       response.send(users);
-//     }
-//   })
-// })
-
 //creates a show for the user
 router.post('/createdShow', function(request,response){
   console.log('Created show');
@@ -30,7 +18,9 @@ router.post('/createdShow', function(request,response){
     image: data.image,
     episodesWatched: 0,
     totalEpisodes: data.totalEpisodes,
-    tvMazeId: data.tvMazeId
+    tvMazeId: data.tvMazeId,
+    network: data.network,
+    caughtUp: false
   })
 
 //saves shows into a users 'collection'
@@ -55,25 +45,46 @@ router.post('/createdShow', function(request,response){
   })
 })
 
-router.get('/findId', function(request, response){
-  var id = request.user._id;
+router.get('/editEpisodes', function(request, response){
   var user = request.user;
-  // console.log('id is', id);
   response.send(user);
+  // console.log(user.shows);
 
 })
-router.get('/editEpisodes', function(request,response){
-  var id = request.user._id;
+router.post('/editEpisodes', function(request,response){
+  console.log('editing episodes');
+  var user = request.user;
+  // console.log('this is the user', user);
+  // var tvId = request.user.shows._id;
+  // console.log(tvId);
+  var data = request.body;
+  // console.log('this is data', data);
+  var savedEpisodes = data.episodesWatched
+  var tvId = data.tvId
+  var caughtUp = data.caughtUp
+  console.log(data.episodesWatched);
+  console.log(data.tvId);
 
 
 
-  User.findById(id, function(err, user){
-    if(err){
-      console.log(err);
-      response.sendStatus(500);
-    } else {
-      response.send(user);
-    }
+  User.findById(user._id, function(err, user){
+    // console.log('user',user);
+    // console.log(tvId);
+    // console.log(user.shows);
+    // console.log(user.shows.id(tvId));
+    var currentShow = user.shows.id(tvId);
+
+    currentShow.episodesWatched = savedEpisodes;
+    currentShow.caughtUp = caughtUp;
+
+    user.save(function(err){
+      if (err){
+        console.log(err);
+        response.sendStatus(500);
+      } else {
+        response.sendStatus(200);
+      }
+    })
   })
 })
 

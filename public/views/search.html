@@ -12,9 +12,16 @@
               <h3>{{item.name}}</h3>
       </div>
       <!-- <br /> -->
-      <img ng-src="{{item.image}}" class="img-thumbnail"/>
-      <h4>Summary</h4><p ng-bind-html="item.summary"></p>
-      <button class="btn btn-success" ng-click="lookup.addToMyShows(item)">Add to My Shows</button>
+      <div class="showImage">
+        <img ng-src="{{item.image}}" class="img-thumbnail"/>
+        <br />
+      </div>
+      <div class="showButton">
+        <button class="btn btn-success" ng-click="lookup.addToMyShows(item)">Add to My Shows</button>
+      </div>
+      <div class="showInfo">
+        <h4>Summary</h4><p ng-bind-html="item.summary"></p>
+      </div>
     </div>
 
 </div>

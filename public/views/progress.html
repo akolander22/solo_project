@@ -1,1 +1,16 @@
-<h1>Overall Progress</h1>
+<div class="progression">
+  <h1>Overall Progress</h1>
+
+  <div class="progress" id="overall">
+    <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="{{progress.allOfTheEpisodes}}" style="width:{{100*(progress.allOfTheEpisodesWatched/progress.allOfTheEpisodes)}}%">
+    </div>
+  </div>
+  <h3>Total Episodes Watched</h3>
+    <h4>{{progress.allOfTheEpisodesWatched}}</h4>
+    <h4>Min: {{progress.timeWatched}}</h4>
+    <h4>Hours: {{progress.timeWatched/60}}</h4>
+  <h3>Total Episodes</h3>
+    <h4>{{progress.allOfTheEpisodes}}</h4>
+    <h4>Min: {{progress.timeNeededToWatch}}</h4>
+    <h4>Hours: {{progress.timeNeededToWatch/60}}</h4>
+</div>

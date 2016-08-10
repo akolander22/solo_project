@@ -11,7 +11,9 @@ var showSchema = new Schema({
   image: String,
   episodesWatched: Number,
   totalEpisodes: Number,
-  tvMazeId: Number
+  tvMazeId: Number,
+  network: String,
+  caughtUp: Boolean
 });
 
 var Show = mongoose.model('Show', showSchema);
