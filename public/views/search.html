@@ -9,18 +9,18 @@
     </div>
     <div ng-repeat="item in lookup.showArray track by $index" class="newShow">
       <div class="showHeader">
-              <h3>{{item.name}}</h3>
+              <h2>{{item.name}}</h2>
       </div>
       <!-- <br /> -->
       <div class="showImage">
         <img ng-src="{{item.image}}" class="img-thumbnail"/>
         <br />
       </div>
+      <div class="showInfo">
+        <h3>Summary</h3><p ng-bind-html="item.summary"></p>
+      </div>
       <div class="showButton">
         <button class="btn btn-success" ng-click="lookup.addToMyShows(item)">Add to My Shows</button>
-      </div>
-      <div class="showInfo">
-        <h4>Summary</h4><p ng-bind-html="item.summary"></p>
       </div>
     </div>
 

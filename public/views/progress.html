@@ -6,11 +6,13 @@
     </div>
   </div>
   <h3>Total Episodes Watched</h3>
-    <h4>{{progress.allOfTheEpisodesWatched}}</h4>
-    <h4>Min: {{progress.timeWatched}}</h4>
-    <h4>Hours: {{progress.timeWatched/60}}</h4>
+    <h5>{{progress.allOfTheEpisodesWatched}}</h5>
+    <h5>Min: {{progress.timeWatched}}</h5>
+    <h5>Hours: {{progress.timeWatched/60}}</h5>
+    <h5>Days: {{(progress.timeWatched/60)/24}}</h5>
   <h3>Total Episodes</h3>
-    <h4>{{progress.allOfTheEpisodes}}</h4>
-    <h4>Min: {{progress.timeNeededToWatch}}</h4>
-    <h4>Hours: {{progress.timeNeededToWatch/60}}</h4>
+    <h5>{{progress.allOfTheEpisodes}}</h5>
+    <h5>Min: {{progress.timeNeededToWatch}}</h5>
+    <h5>Hours: {{progress.timeNeededToWatch/60}}</h5>
+    <h5>Days: {{(progress.timeNeededToWatch/60)/24}}</h5>
 </div>

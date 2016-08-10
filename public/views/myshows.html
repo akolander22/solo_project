@@ -3,7 +3,7 @@
 <h1>{{username}}'s Shows</h1>
 <div class="myShows">
   <h2>Shows I'm Watching</h2>
-    <ul ng-repeat="oneshow in myshows.currentShowsList">
+    <ul class="oneShow" ng-repeat="oneshow in myshows.currentShowsList">
       <li>
         <h4>{{oneshow.showName}}</h4>
         <div class="episode-content">
@@ -12,12 +12,11 @@
             <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="{{oneshow.totalEpisodes}}" style="width:{{100*(oneshow.episodesWatched/oneshow.totalEpisodes)}}%">
             </div>
           </div>
-            <h5>Episodes Watched</h5>
-          {{oneshow.episodesWatched}}
           <button class="btn btn-success" ng-click="myshows.add(oneshow)">+</button>
           <button class="btn btn-danger" ng-click="myshows.subtract(oneshow)">-</button>
           <button class="btn btn-warning" ng-click="myshows.saveToMyDb(oneshow)">Save</button>
           <div class="episodes">
+            <h5>Episodes Watched: {{oneshow.episodesWatched}}</h5>
             <h5>Total Episodes: {{oneshow.totalEpisodes}}</h5>
             <br />
           </div>
@@ -27,7 +26,13 @@
 </div>
 <div class="completedShows">
   <h2>Completed Shows</h2>
-    <div ng-repeat="singleshow in myshows.caughtUpShowsList">
-      <img ng-src="{{singleshow.image}}" class="completeImage" />
+    <div ng-repeat="oneshow in myshows.caughtUpShowsList">
+      <img ng-src="{{oneshow.image}}" class="completeImage" />
+    </div>
+</div>
+<div class="overAndDone">
+  <h2>Over and Done</h2>
+    <div ng-repeat="oneshow in myshows.overAndOut">
+      <img ng-src="{{oneshow.image}}" class="overAndDone" />
     </div>
 </div>

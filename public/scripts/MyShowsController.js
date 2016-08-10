@@ -1,12 +1,6 @@
 angular.module('tvApp').controller('MyShowsController', function($http, $rootScope){
   var vm = this;
 
-  // vm.showsVisible = function(){
-  //   ng
-  // }
-
-
-  // $rootScope.username = vm.username;
   $http.get('/show/editEpisodes').then(function(response){
     // console.log(request.params.id);
     // console.log(request.user._id);
@@ -14,15 +8,17 @@ angular.module('tvApp').controller('MyShowsController', function($http, $rootSco
     var showsList = response.data.shows;
     vm.currentShowsList = [];
     vm.caughtUpShowsList = [];
-    vm.overAndOut = [];
+    vm.overAndDone = [];
     // console.log(vm.showsList);
     for (var i = 0; i < showsList.length; i++) {
-      if(showsList[i].caughtUp == false){
-        vm.currentShowsList.push(showsList[i]);
+      vm.currentShowsList.push(showsList[i]);
         // console.log(vm.currentShowsList);
-      } else if(showsList[i].caughtUp == true) {
-          vm.caughtUpShowsList.push(showsList[i]);
-          // console.log(vm.caughtUpShowsList);
+      if(showsList[i].caughtUp == true) {
+        vm.caughtUpShowsList.push(showsList[i]);
+        // console.log(vm.caughtUpShowsList);
+        // while(showsList[i].caughtUp == true && showsList[i].status == "Ended"){
+        //   vm.overAndDone.push(showsList[i]);
+        // }
       }
 
     }
@@ -32,12 +28,13 @@ angular.module('tvApp').controller('MyShowsController', function($http, $rootSco
       // console.log('clicked plus');
       oneshow.episodesWatched += 1;
       // console.log(oneshow.episodesWatched);
-
       if(oneshow.episodesWatched > oneshow.totalEpisodes){
         oneshow.episodesWatched = oneshow.totalEpisodes;
       }
       if(oneshow.episodesWatched == oneshow.totalEpisodes){
         oneshow.caughtUp = true;
+      } else {
+        oneshow.caughtUp = false;
       }
     }
     vm.subtract = function(oneshow){
@@ -46,6 +43,7 @@ angular.module('tvApp').controller('MyShowsController', function($http, $rootSco
       if(oneshow.episodesWatched < 0){
         oneshow.episodesWatched = 0;
       }
+      oneshow.caughtUp = false;
       // console.log(oneshow.episodesWatched);
     }
   }, function(response){
