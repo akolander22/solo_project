@@ -17,5 +17,28 @@
       <h5>Min: {{progress.timeNeededToWatch}}</h5>
       <h5>Hours: {{progress.timeNeededToWatch/60}}</h5>
       <h5>Days: {{(progress.timeNeededToWatch/60)/24}}</h5>
+
+  </div>
+  <div class="showsWatched">
+    <div class="network">
+      <h3 class="titles">HBO Shows</h3>
+        <h5 ng-repeat="hbo in progress.hboList">{{hbo.showName}}</h5>
+    </div>
+    <div class="network">
+    <h3 class="titles">Showtime</h3>
+      <h5 ng-repeat="showtime in progress.showtimeList">{{showtime.showName}}</h5>
+    </div>
+    <div class="network">
+    <h3 class="titles">FX or AMC</h3>
+      <h5 ng-repeat="fxamc in progress.fxOrAmcList">{{fxamc.showName}}</h5>
+    </div>
+    <div class="network">
+    <h3 class="titles">Basic Cable</h3>
+      <h5 ng-repeat="basic in progress.basicCableList">{{basic.showName}}</h5>
+    </div>
+    <div class="network">
+    <h3 class="titles">Others</h3>
+      <h5 ng-repeat="other in progress.other">{{other.showName}}</h5>
+    </div>
   </div>
 </div>

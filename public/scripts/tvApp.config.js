@@ -1,10 +1,5 @@
 angular.module('tvApp').config(function($routeProvider, $locationProvider){
   $routeProvider
-  // .when('/', {
-  //   templateUrl: 'views/index.html',
-  //   controller: 'MainController',
-  //   controllerAs: 'main'
-  // })
   .when('/login', {
     templateUrl: 'views/login.html',
     controller: 'LoginController',
@@ -37,12 +32,6 @@ angular.module('tvApp').config(function($routeProvider, $locationProvider){
   .when('/failure', {
     templateUrl: 'views/nope.html',
   })
-  // .otherwise({
-  //   redirectTo: '/login'
-  // })
-
-
-
 
 
   $locationProvider.html5Mode(true);

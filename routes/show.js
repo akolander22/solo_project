@@ -90,5 +90,11 @@ router.post('/editEpisodes', function(request,response){
   })
 })
 
+router.delete('/deleteShow/:id', function(request,response){
+  console.log(request.params);
+
+
+})
+
 
 module.exports = router;

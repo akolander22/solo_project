@@ -10,6 +10,10 @@ angular.module('tvApp').controller('MyShowsController', function($http, $rootSco
     vm.currentShowsList = [];
     vm.caughtUpShowsList = [];
     vm.overAndDone = [];
+    vm.hboList = [];
+    vm.showtimeList = [];
+    vm.basicCableList = [];
+    vm.other = [];
 
     for (var i = 0; i < showsList.length; i++) {
       vm.currentShowsList.push(showsList[i]);
@@ -20,8 +24,33 @@ angular.module('tvApp').controller('MyShowsController', function($http, $rootSco
         // console.log(showsList[i]);
         vm.overAndDone.push(showsList[i]);
       }
+      // switch (showsList[i].network){
+      //   case "HBO":
+      //     vm.hboList.push(showsList[i]);
+      //     break;
+      //   case "Showtime":
+      //     vm.showtimeList.push(showsList[i]);
+      //     break;
+      //   case "ABC":
+      //     vm.basicCableList.push(showsList[i]);
+      //     break;
+      //   case "FOX":
+      //     vm.basicCableList.push(showsList[i]);
+      //     break;
+      //   case "NBC":
+      //     vm.basicCableList.push(showsList[i]);
+      //     break;
+      //   case "CBS":
+      //     vm.basicCableList.push(showsList[i]);
+      //     break;
+      //   default:
+      //     vm.other.push(showsList[i]);
+      // }
+      // console.log(vm.other);
     }
-
+  vm.all = function(oneshow){
+    oneshow.episodesWatched = oneshow.totalEpisodes;
+  }
 //button function to add episodes
   vm.add = function(oneshow){
     oneshow.episodesWatched += 1;
@@ -67,5 +96,15 @@ angular.module('tvApp').controller('MyShowsController', function($http, $rootSco
       console.log('Fail');
     })
   };
+  vm.delete = function(oneshow){
+    console.log('clicked delete', oneshow);
+
+    $http.delete('/show/deleteShow/' + oneshow._id).then(function(response){
+      console.log('Successfully deleted', response);
+      // response.send(oneshow)
+    }, function(response){
+      console.log('Could not delete');
+    })
+  }
 
 })

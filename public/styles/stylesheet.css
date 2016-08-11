@@ -1,8 +1,7 @@
 body {
   background-color: #00BFFF;
-  /*font-family: 'Merriweather', serif;*/
   font-family: 'Comfortaa', cursive;
-  font-size: 150%;
+  font-size: 200%;
 }
 
 .navbar-brand{
@@ -120,4 +119,21 @@ body {
 }
 .titles {
   text-decoration: underline;
+}
+.showsWatched:h3 {
+  display: inline-block;
+}
+/*.showsWatched {
+  background-color: #ff9933;
+  border: 2px solid black;
+  border-radius: 2%;
+  margin: 5px 200px 5px 200px;
+  padding: 3px;
+  color: white;
+  text-shadow: 1px 1px black;
+}*/
+.network {
+  float: left;
+  width: 33%;
+  /*display: inline-block;*/
 }

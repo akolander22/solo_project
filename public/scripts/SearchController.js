@@ -16,7 +16,11 @@ angular.module('tvApp').controller('SearchController', function($http,$rootScope
         } else {
           tempShow.image = 'assets/download.jpeg';
         }
-
+        if(response.data[i].show.network != null){
+          tempShow.network = response.data[i].show.network.name;
+        } else {
+          tempShow.network = 'Netflix';
+        }
           tempShow.name = response.data[i].show.name;
           tempShow.runtime = response.data[i].show.runtime;
           tempShow.summary = response.data[i].show.summary;
@@ -24,7 +28,7 @@ angular.module('tvApp').controller('SearchController', function($http,$rootScope
           tempShow.url = response.data[i].show.url;
           tempShow.premiered = response.data[i].show.premiered;
           tempShow.tvMazeId = response.data[i].show.id;
-          tempShow.network = response.data[i].show.network.name;
+          // tempShow.network = response.data[i].show.network.name;
           vm.showArray.push(tempShow);
       }
     });
@@ -50,10 +54,10 @@ angular.module('tvApp').controller('SearchController', function($http,$rootScope
 
 //get request to get episode information of individual show
     $http.get('http://api.tvmaze.com/shows/' + item.tvMazeId + '?embed=episodes').then(function(response){
-      console.log(response.data._embedded);
+      // console.log(response.data._embedded);
       item.totalEpisodes = response.data._embedded.episodes.length;
       sendData.totalEpisodes = item.totalEpisodes;
-      console.log(item);
+      // console.log(item);
 
       createShow(sendData);
       // console.log(item.totalEpisodes);

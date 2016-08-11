@@ -11,17 +11,20 @@
       <div class="showHeader">
               <h2>{{item.name}}</h2>
       </div>
-      <!-- <br /> -->
       <div class="showImage">
         <img ng-src="{{item.image}}" class="img-thumbnail"/>
+        <br />
+        <div class="showButton">
+          <button class="btn btn-success" ng-click="lookup.addToMyShows(item)">Add to My Shows</button>
+        </div>
         <br />
       </div>
       <div class="showInfo">
         <h3>Summary</h3><p ng-bind-html="item.summary"></p>
       </div>
-      <div class="showButton">
+      <!-- <div class="showButton">
         <button class="btn btn-success" ng-click="lookup.addToMyShows(item)">Add to My Shows</button>
-      </div>
+      </div> -->
     </div>
 
 </div>

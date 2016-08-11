@@ -1,5 +1,3 @@
-
-<!-- {{username}} -->
 <h1 class="user">{{username}}'s Shows</h1>
 <div class="myShows">
   <h2>Shows I'm Watching</h2>
@@ -12,7 +10,9 @@
             </div>
           </div>
           <button class="btn btn-success episodeButtons" ng-click="myshows.add(oneshow)">+</button>
-          <button class="btn btn-danger episodeButtons" ng-click="myshows.subtract(oneshow)">-</button>
+          <button class="btn btn-warning episodeButtons" ng-click="myshows.subtract(oneshow)">-</button>
+          <button class="btn btn-primary episodeButtons" ng-click="myshows.all(oneshow)">ALL</button>
+          <button class="btn btn-danger episodeButtons" ng-click="myshows.delete(oneshow)">Delete</button>
           <button class="btn btn-info episodeButtons" ng-click="myshows.saveToMyDb(oneshow)">Save</button>
           <div class="episodes">
             <h5>Episodes Watched: {{oneshow.episodesWatched}}</h5>
