@@ -92,8 +92,20 @@ router.post('/editEpisodes', function(request,response){
 
 router.delete('/deleteShow/:id', function(request,response){
   console.log(request.params);
+  // console.log(request.user);
 
+  var user = request.user;
+  var id = request.params.id;
 
+  Show.findByIdAndRemove(id, function(err){
+    if(err){
+      console.log(err);
+      response.sendStatus(500);
+    } else {
+      console.log('Show Deleted');
+      response.sendStatus(200);
+    }
+  })
 })
 
 
