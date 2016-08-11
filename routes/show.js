@@ -51,6 +51,8 @@ router.get('/editEpisodes', function(request, response){
   // console.log(user.shows);
 
 })
+
+
 router.post('/editEpisodes', function(request,response){
   console.log('editing episodes');
   var user = request.user;

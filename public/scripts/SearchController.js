@@ -2,6 +2,8 @@ angular.module('tvApp').controller('SearchController', function($http,$rootScope
   var vm = this;
   // vm.isDisabled = false;
 
+
+//accessing the tvmaze api to return search results
   vm.findData = function(){
     $http.get("http://api.tvmaze.com/search/shows?q=" + vm.entry).then(function(response){
       vm.info = response.data;
@@ -27,6 +29,8 @@ angular.module('tvApp').controller('SearchController', function($http,$rootScope
       }
     });
   }
+
+  //button function which adds selected show to users 'shows'
   vm.addToMyShows = function(item){
     // vm.isDisabled = true;
     // console.log('Clicked', item);
@@ -43,8 +47,10 @@ angular.module('tvApp').controller('SearchController', function($http,$rootScope
     sendData.network = item.network;
     // console.log(sendData);
 
+
+//get request to get episode information of individual show
     $http.get('http://api.tvmaze.com/shows/' + item.tvMazeId + '?embed=episodes').then(function(response){
-      // console.log(response.data._embedded.episodes);
+      console.log(response.data._embedded);
       item.totalEpisodes = response.data._embedded.episodes.length;
       sendData.totalEpisodes = item.totalEpisodes;
       console.log(item);
@@ -57,6 +63,7 @@ angular.module('tvApp').controller('SearchController', function($http,$rootScope
 
   }
 
+//post to db
   function createShow(sendData){
 
     $http.post('/show/createdShow', sendData).then(function(response){

@@ -5,14 +5,17 @@
     <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="{{progress.allOfTheEpisodes}}" style="width:{{100*(progress.allOfTheEpisodesWatched/progress.allOfTheEpisodes)}}%">
     </div>
   </div>
-  <h3>Total Episodes Watched</h3>
-    <h5>{{progress.allOfTheEpisodesWatched}}</h5>
-    <h5>Min: {{progress.timeWatched}}</h5>
-    <h5>Hours: {{progress.timeWatched/60}}</h5>
-    <h5>Days: {{(progress.timeWatched/60)/24}}</h5>
-  <h3>Total Episodes</h3>
-    <h5>{{progress.allOfTheEpisodes}}</h5>
-    <h5>Min: {{progress.timeNeededToWatch}}</h5>
-    <h5>Hours: {{progress.timeNeededToWatch/60}}</h5>
-    <h5>Days: {{(progress.timeNeededToWatch/60)/24}}</h5>
+  <div class="episodesWatched">
+
+    <h3 class="titles">Total Episodes Watched</h3>
+      <h5>{{progress.allOfTheEpisodesWatched}}</h5>
+      <h5>Min: {{progress.timeWatched}}</h5>
+      <h5>Hours: {{progress.timeWatched/60}}</h5>
+      <h5>Days: {{(progress.timeWatched/60)/24}}</h5>
+    <h3 class="titles">Total Episodes</h3>
+      <h5>{{progress.allOfTheEpisodes}}</h5>
+      <h5>Min: {{progress.timeNeededToWatch}}</h5>
+      <h5>Hours: {{progress.timeNeededToWatch/60}}</h5>
+      <h5>Days: {{(progress.timeNeededToWatch/60)/24}}</h5>
+  </div>
 </div>

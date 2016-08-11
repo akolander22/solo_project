@@ -18,23 +18,6 @@ angular.module('tvApp').controller('ProgressController', function($http){
       vm.timeWatched += (shows[i].episodesWatched * shows[i].runtime);
       vm.timeNeededToWatch += (shows[i].totalEpisodes * shows[i].runtime);
     }
-    // for (var i = 0; i < shows.length; i++) {
-    //   vm.allOfTheEpisodesWatched += shows[i].episodesWatched;
-    // }
-    // // console.log(vm.allOfTheEpisodes);
-    // // console.log(vm.allOfTheEpisodesWatched);
-    // for (var i = 0; i < shows.length; i++) {
-    //   console.log(shows[i].runtime);
-    //   vm.timeWatched += (shows[i].episodesWatched * shows[i].runtime);
-    // }
-    // console.log(vm.timeWatched);
-    // for (var i = 0; i < shows.length; i++) {
-    //   vm.timeNeededToWatch += (shows[i].totalEpisodes * shows[i].runtime);
-    //   console.log(vm.timeNeededToWatch);
-    // }
-
-
-
 
   }, function(response){
     console.log('Fail to get shows');
