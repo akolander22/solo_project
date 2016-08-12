@@ -1,6 +1,6 @@
 body {
   background-color: #00BFFF;
-  font-family: 'Comfortaa', cursive;
+  font-family: 'Yatra One', cursive;
   font-size: 200%;
 }
 
@@ -99,7 +99,26 @@ body {
   width: 125px;
   border: 1px solid white;
 }
-.episodesWatched {
+.episodesWatchedContainer {
+  height: 200px;
+  background-color: #ff9933;
+  border: 2px solid black;
+  border-radius: 2%;
+  margin: 5px 200px 5px 200px;
+  padding: 3px;
+  color: white;
+  text-shadow: 1px 1px black;
+}
+.episodesWatched1{
+  float: left;
+  width: 50%;
+}
+.episodesWatched2{
+  float: left;
+  width: 50%;
+}
+.showsWatched {
+  height: 750px;
   background-color: #ff9933;
   border: 2px solid black;
   border-radius: 2%;
@@ -110,7 +129,7 @@ body {
 }
 .user {
   color: white;
-  text-decoration: underline;
+  /*text-decoration: underline;*/
   text-shadow: 1px 1px black;
 }
 .episodeButtons {
@@ -120,20 +139,23 @@ body {
 .titles {
   text-decoration: underline;
 }
-.showsWatched:h3 {
-  display: inline-block;
-}
-/*.showsWatched {
-  background-color: #ff9933;
-  border: 2px solid black;
-  border-radius: 2%;
-  margin: 5px 200px 5px 200px;
-  padding: 3px;
-  color: white;
-  text-shadow: 1px 1px black;
-}*/
-.network {
+.network1 {
   float: left;
   width: 33%;
-  /*display: inline-block;*/
+}
+.network2 {
+  float: left;
+  width: 33%;
+}
+.network3 {
+  float: left;
+  width: 33%;
+}
+.network4 {
+  float: left;
+  width: 33%;
+}
+.network5 {
+  float: left;
+  width: 33%;
 }

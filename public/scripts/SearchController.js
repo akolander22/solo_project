@@ -7,7 +7,7 @@ angular.module('tvApp').controller('SearchController', function($http,$rootScope
   vm.findData = function(){
     $http.get("http://api.tvmaze.com/search/shows?q=" + vm.entry).then(function(response){
       vm.info = response.data;
-      console.log(vm.info);
+      // console.log(vm.info);
       vm.showArray = [];
       for (var i = 0; i < response.data.length; i++) {
         var tempShow = {};
