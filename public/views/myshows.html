@@ -2,7 +2,7 @@
 <div class="myShows">
   <h2>Shows I'm Watching</h2>
     <div class="oneShow" ng-repeat="oneshow in myshows.currentShowsList">
-        <h3>{{oneshow.showName}}</h3>
+        <h3 class="showTitle">{{oneshow.showName}}</h3>
         <div class="episode-content">
           <img ng-hide="true" ng-src="{{oneshow.image}}" class="img-thumbnail"/>
           <div class="progress">

@@ -53,7 +53,7 @@ angular.module('tvApp').controller('SearchController', function($http,$rootScope
 
 
 //get request to get episode information of individual show
-    $http.get('http://api.tvmaze.com/shows/' + item.tvMazeId + '?embed=episodes').then(function(response){
+    $http.get('//api.tvmaze.com/shows/' + item.tvMazeId + '?embed=episodes').then(function(response){
       // console.log(response.data._embedded);
       item.totalEpisodes = response.data._embedded.episodes.length;
       sendData.totalEpisodes = item.totalEpisodes;

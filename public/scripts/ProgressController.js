@@ -72,6 +72,11 @@ angular.module('tvApp').controller('ProgressController', function($http){
           vm.fxOrAmcEpisodes += (shows[i].totalEpisodes);
           vm.fxOrAmcEpisodesWatched += (shows[i].episodesWatched);
           break;
+        case "FXX":
+          vm.fxOrAmcList.push(shows[i]);
+          vm.fxOrAmcEpisodes += (shows[i].totalEpisodes);
+          vm.fxOrAmcEpisodesWatched += (shows[i].episodesWatched);
+          break;
         case "AMC":
           vm.fxOrAmcList.push(shows[i]);
           vm.fxOrAmcEpisodes += (shows[i].totalEpisodes);
