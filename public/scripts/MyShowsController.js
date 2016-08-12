@@ -70,15 +70,16 @@ angular.module('tvApp').controller('MyShowsController', function($http, $rootSco
       })
     };
     vm.delete = function(oneshow){
-      console.log('clicked delete', oneshow);
+      // console.log('clicked delete', oneshow);
 
       $http.delete('/show/deleteShow/' + oneshow._id).then(function(response){
         console.log('Successfully deleted', response);
         // response.send(oneshow)
+        getTheShows();
+
       }, function(response){
         console.log('Could not delete');
       })
-    getTheShows();
     }
   }, function(response){
     console.log('Fail to get shows');

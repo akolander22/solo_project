@@ -143,19 +143,40 @@ body {
   float: left;
   width: 33%;
 }
+#hbo {
+  width: 70%;
+  margin: auto;
+
+}
 .network2 {
   float: left;
   width: 33%;
+}
+#showtime {
+  width: 70%;
+  margin: auto;
 }
 .network3 {
   float: left;
   width: 33%;
 }
+#fxAmc {
+  width: 70%;
+  margin: auto;
+}
 .network4 {
   float: left;
   width: 33%;
 }
+#cable {
+  width: 70%;
+  margin: auto;
+}
 .network5 {
   float: left;
   width: 33%;
+}
+#other {
+  width: 70%;
+  margin: auto;
 }

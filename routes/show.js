@@ -96,6 +96,19 @@ router.delete('/deleteShow/:id', function(request,response){
 
   var user = request.user;
   var id = request.params.id;
+  console.log(id);
+
+  User.findById(request.user.id, function(err, user){
+    if(err){
+      console.log(err);
+    }
+    user.shows.id(id).remove();
+    user.save(function(err){
+      if(err){
+        console.log(err);
+      }
+    })
+  })
 
   Show.findByIdAndRemove(id, function(err){
     if(err){

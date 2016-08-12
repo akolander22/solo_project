@@ -25,22 +25,42 @@
     <div class="network1">
       <h3 class="titles">HBO Shows</h3>
         <h5 ng-repeat="hbo in progress.hboList">{{hbo.showName}}</h5>
+        <div class="progress" id="hbo">
+          <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="{{progress.hboEpisodes}}" style="width:{{100*(progress.hboEpisodesWatched/progress.hboEpisodes)}}%">
+        </div>
     </div>
+  </div>
     <div class="network2">
     <h3 class="titles">Showtime</h3>
       <h5 ng-repeat="showtime in progress.showtimeList">{{showtime.showName}}</h5>
+      <div class="progress" id="showtime">
+        <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="{{progress.showtimeEpisodes}}" style="width:{{100*(progress.showtimeEpisodesWatched/progress.showtimeEpisodes)}}%">
+      </div>
     </div>
+  </div>
     <div class="network3">
     <h3 class="titles">FX or AMC</h3>
       <h5 ng-repeat="fxamc in progress.fxOrAmcList">{{fxamc.showName}}</h5>
+      <div class="progress" id="fxAmc">
+        <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="{{progress.fxOrAmcEpisodes}}" style="width:{{100*(progress.fxOrAmcEpisodesWatched/progress.fxOrAmcEpisodes)}}%">
+      </div>
     </div>
+  </div>
     <div class="network4">
     <h3 class="titles">Basic Cable</h3>
       <h5 ng-repeat="basic in progress.basicCableList">{{basic.showName}}</h5>
-    </div>
-    <div class="network5">
-    <h3 class="titles">Others</h3>
-      <h5 ng-repeat="other in progress.other">{{other.showName}}</h5>
+      <div class="progress" id="cable">
+        <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="{{progress.basicCableEpisodes}}" style="width:{{100*(progress.basicCableEpisodesWatched/progress.basicCableEpisodes)}}%">
+      </div>
     </div>
   </div>
+    <div class="network5">
+    <h3 class="titles">Others</h3>
+      <h5 ng-repeat="other in progress.otherList">{{other.showName}}</h5>
+      <div class="progress" id="other">
+        <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="{{progress.otherEpisodes}}" style="width:{{100*(progress.otherEpisodesWatched/progress.otherEpisodes)}}%">
+      </div>
+    </div>
+  </div>
+</div>
 </div>
