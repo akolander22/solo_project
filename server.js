@@ -92,7 +92,13 @@ passport.deserializeUser(function(id, done) {
 
 
 //mongodb
-var mongoURI = "mongodb://localhost:27017/tv_tracker_users" || "mongodb://tvtracker:overanddone@ds153765.mlab.com:53765/heroku_29xg3qd4";
+var mongoURI = "";
+  if(process.env.MONGODB_URI != undefined){
+    mongoURI = "mongodb://tvtracker:overanddone@ds153765.mlab.com:53765/heroku_29xg3qd4";
+  } else {
+    mongoURI = "mongodb://localhost:27017/tv_tracker_users";
+  }
+// var mongoURI = "mongodb://localhost:27017/tv_tracker_users" || "mongodb://tvtracker:overanddone@ds153765.mlab.com:53765/heroku_29xg3qd4";
 var MongoDB = mongoose.connect(mongoURI).connection;
 
 MongoDB.on('error', function(err){
@@ -104,7 +110,7 @@ MongoDB.once('open', function(){
 })
 
 
-var server = app.listen(process.env.PORT || 3000, function(){
+var server = app.listen(process.env.MONGODB_URI || 3000, function(){
   var port = server.address().port;
   console.log('Listening on port', port);
 })
