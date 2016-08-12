@@ -5,7 +5,7 @@ angular.module('tvApp').controller('SearchController', function($http,$rootScope
 
 //accessing the tvmaze api to return search results
   vm.findData = function(){
-    $http.get("http://api.tvmaze.com/search/shows?q=" + vm.entry).then(function(response){
+    $http.get("//api.tvmaze.com/search/shows?q=" + vm.entry).then(function(response){
       vm.info = response.data;
       // console.log(vm.info);
       vm.showArray = [];
@@ -71,7 +71,7 @@ angular.module('tvApp').controller('SearchController', function($http,$rootScope
   function createShow(sendData){
 
     $http.post('/show/createdShow', sendData).then(function(response){
-      console.log('Success', response);
+      // console.log('Success', response);
     }, function(response){
       console.log('Fail');
     })

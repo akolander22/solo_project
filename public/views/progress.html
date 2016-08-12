@@ -11,14 +11,14 @@
         <h4>{{progress.allOfTheEpisodesWatched}}</h4>
         <h4>Min: {{progress.timeWatched}}</h4>
         <h4>Hours: {{progress.timeWatched/60}}</h4>
-        <h4>Days: {{(progress.timeWatched/60)/24}}</h4>
+        <h4>Days: {{((progress.timeWatched/60)/24).toFixed(2)}}</h4>
     </div>
     <div class="episodesWatched2">
     <h3 class="titles">Total Episodes</h3>
       <h4>{{progress.allOfTheEpisodes}}</h4>
       <h4>Min: {{progress.timeNeededToWatch}}</h4>
       <h4>Hours: {{progress.timeNeededToWatch/60}}</h4>
-      <h4>Days: {{(progress.timeNeededToWatch/60)/24}}</h4>
+      <h4>Days: {{((progress.timeNeededToWatch/60)/24).toFixed(2)}}</h4>
     </div>
   </div>
   <div class="showsWatched">

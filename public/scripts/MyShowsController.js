@@ -26,6 +26,7 @@ angular.module('tvApp').controller('MyShowsController', function($http, $rootSco
     };
     vm.all = function(oneshow){
       oneshow.episodesWatched = oneshow.totalEpisodes;
+      oneshow.caughtUp = true;
     }
 //button function to add episodes
     vm.add = function(oneshow){
@@ -64,7 +65,7 @@ angular.module('tvApp').controller('MyShowsController', function($http, $rootSco
       sendData.caughtUp = oneshow.caughtUp;
 
       $http.post('/show/editEpisodes', sendData).then(function(response){
-        console.log('Success', response);
+        // console.log('Success', response);
       }, function(response){
         console.log('Fail');
       })
@@ -73,13 +74,13 @@ angular.module('tvApp').controller('MyShowsController', function($http, $rootSco
       // console.log('clicked delete', oneshow);
 
       $http.delete('/show/deleteShow/' + oneshow._id).then(function(response){
-        console.log('Successfully deleted', response);
+        // console.log('Successfully deleted', response);
         // response.send(oneshow)
-        getTheShows();
 
       }, function(response){
         console.log('Could not delete');
       })
+      getTheShows();
     }
   }, function(response){
     console.log('Fail to get shows');
