@@ -76,7 +76,6 @@ angular.module('tvApp').controller('MyShowsController', function($http, $rootSco
       $http.delete('/show/deleteShow/' + oneshow._id).then(function(response){
         // console.log('Successfully deleted', response);
         // response.send(oneshow)
-
       }, function(response){
         console.log('Could not delete');
       })

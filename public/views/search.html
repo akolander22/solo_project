@@ -4,7 +4,7 @@
     <div class="input searchBar">
       <input class="form-control input-lg" type="text" ng-model="lookup.entry" placeholder="Enter Tv Show" />
       <br />
-      <button class="btn btn-primary" ng-click="lookup.findData()">Search</button>
+      <button type="submit" ng-click="lookup.findData()"class="btn btn-primary">Search</button>
       <br />
     </div>
     <div ng-repeat="item in lookup.showArray track by $index" class="newShow">
