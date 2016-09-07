@@ -5,10 +5,10 @@ angular.module('tvApp').controller('SearchController', function($http,$rootScope
 
 //accessing the tvmaze api to return search results
   vm.findData = function(){
-    console.log('clicked here');
+    // console.log('clicked here');
     $http.get("//api.tvmaze.com/search/shows?q=" + vm.entry).then(function(response){
       vm.info = response.data;
-      console.log(vm.info);
+      // console.log(vm.info);
       vm.showArray = [];
       for (var i = 0; i < response.data.length; i++) {
         var tempShow = {};
