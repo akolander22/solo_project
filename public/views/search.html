@@ -1,12 +1,15 @@
 <div class="container">
 
   <h1>Search</h1>
+    <form ng-submit="submit()">
+
     <div class="input searchBar">
       <input class="form-control input-lg" type="text" ng-model="lookup.entry" placeholder="Enter Tv Show" />
       <br />
       <button type="submit" ng-click="lookup.findData()"class="btn btn-primary">Search</button>
       <br />
     </div>
+    </form>
     <div ng-repeat="item in lookup.showArray track by $index" class="newShow">
       <div class="showHeader">
               <h2>{{item.name}}</h2>
