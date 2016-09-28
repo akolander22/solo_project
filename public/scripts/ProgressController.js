@@ -5,9 +5,7 @@ angular.module('tvApp').controller('ProgressController', function($http){
 
     vm.progressList = [];
 
-    // console.log(response.data.shows);
     var shows = response.data.shows;
-    // console.log(shows);
     vm.allOfTheEpisodes = 0;
     vm.allOfTheEpisodesWatched = 0;
     vm.timeWatched = 0;
@@ -87,7 +85,6 @@ angular.module('tvApp').controller('ProgressController', function($http){
           vm.otherEpisodes += (shows[i].totalEpisodes);
           vm.otherEpisodesWatched += (shows[i].episodesWatched);
       }
-      // console.log(vm.hboEpisodes);
     }
 
   }, function(response){

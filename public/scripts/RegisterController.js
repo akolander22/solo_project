@@ -2,7 +2,6 @@ angular.module('tvApp').controller('RegisterController', function($http, $locati
   var vm = this;
 
   vm.register = function(){
-    // console.log('CALLED RED CON 1');
     var sendData = {};
 
     sendData.username = vm.username;
@@ -12,7 +11,6 @@ angular.module('tvApp').controller('RegisterController', function($http, $locati
   };
 
   function handleSuccess(response){
-    // console.log('Success', response);
     $location.path('/login');
   };
 

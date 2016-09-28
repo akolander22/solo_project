@@ -1,14 +1,11 @@
 angular.module('tvApp').controller('SearchController', function($http,$rootScope){
   var vm = this;
-  // vm.isDisabled = false;
 
 
 //accessing the tvmaze api to return search results
   vm.findData = function(){
-    // console.log('clicked here');
     $http.get("//api.tvmaze.com/search/shows?q=" + vm.entry).then(function(response){
       vm.info = response.data;
-      // console.log(vm.info);
       vm.showArray = [];
       for (var i = 0; i < response.data.length; i++) {
         var tempShow = {};
@@ -29,7 +26,6 @@ angular.module('tvApp').controller('SearchController', function($http,$rootScope
           tempShow.url = response.data[i].show.url;
           tempShow.premiered = response.data[i].show.premiered;
           tempShow.tvMazeId = response.data[i].show.id;
-          // tempShow.network = response.data[i].show.network.name;
           vm.showArray.push(tempShow);
       }
     });
@@ -37,8 +33,7 @@ angular.module('tvApp').controller('SearchController', function($http,$rootScope
 
   //button function which adds selected show to users 'shows'
   vm.addToMyShows = function(item){
-    // vm.isDisabled = true;
-    // console.log('Clicked', item);
+
     var sendData = {};
     sendData.showName = item.name;
     sendData.runtime = item.runtime;
@@ -50,19 +45,14 @@ angular.module('tvApp').controller('SearchController', function($http,$rootScope
     sendData.tvMazeId = item.tvMazeId;
     sendData.totalEpisodes = item.totalEpisodes;
     sendData.network = item.network;
-    // console.log(sendData);
 
 
 //get request to get episode information of individual show
     $http.get('//api.tvmaze.com/shows/' + item.tvMazeId + '?embed=episodes').then(function(response){
-      // console.log(response.data._embedded);
       item.totalEpisodes = response.data._embedded.episodes.length;
       sendData.totalEpisodes = item.totalEpisodes;
-      // console.log(item);
 
       createShow(sendData);
-      // console.log(item.totalEpisodes);
-      // console.log(item.premiered);
     })
 
 
@@ -72,7 +62,6 @@ angular.module('tvApp').controller('SearchController', function($http,$rootScope
   function createShow(sendData){
 
     $http.post('/show/createdShow', sendData).then(function(response){
-      // console.log('Success', response);
     }, function(response){
       console.log('Fail');
     })
