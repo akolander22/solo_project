@@ -98,7 +98,6 @@ var mongoURI = "";
   } else {
     mongoURI = "mongodb://localhost:27017/tv_tracker_users";
   }
-// var mongoURI = "mongodb://localhost:27017/tv_tracker_users" || "mongodb://tvtracker:overanddone@ds153765.mlab.com:53765/heroku_29xg3qd4";
 var MongoDB = mongoose.connect(mongoURI).connection;
 
 MongoDB.on('error', function(err){

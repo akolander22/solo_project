@@ -4,7 +4,6 @@ var Show = require('../models/show').model;
 
 //creates a show for the user
 router.post('/createdShow', function(request,response){
-  console.log('Created show');
   var data = request.body;
   var id = request.user._id;
 
@@ -48,7 +47,6 @@ router.post('/createdShow', function(request,response){
 router.get('/editEpisodes', function(request, response){
   var user = request.user;
   response.send(user);
-  // console.log(user.shows);
 
 })
 
@@ -56,24 +54,17 @@ router.get('/editEpisodes', function(request, response){
 router.post('/editEpisodes', function(request,response){
   console.log('editing episodes');
   var user = request.user;
-  // console.log('this is the user', user);
-  // var tvId = request.user.shows._id;
-  // console.log(tvId);
+
   var data = request.body;
-  // console.log('this is data', data);
   var savedEpisodes = data.episodesWatched
   var tvId = data.tvId
   var caughtUp = data.caughtUp
-  console.log(data.episodesWatched);
-  console.log(data.tvId);
+
 
 
 
   User.findById(user._id, function(err, user){
-    // console.log('user',user);
-    // console.log(tvId);
-    // console.log(user.shows);
-    // console.log(user.shows.id(tvId));
+
     var currentShow = user.shows.id(tvId);
 
     currentShow.episodesWatched = savedEpisodes;
