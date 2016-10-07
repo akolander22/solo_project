@@ -2,6 +2,8 @@
 
 hosted on heroku http://frozen-falls-30491.herokuapp.com/
 
+Solo Project for Prime Digital Academy
+
 The purpose of this project was to create a user friendly experience to log in and track television shows the user is watching.
 
 Upon registering/logging in a user is then asked to search for a specific title of a TV show.  The search returns(depending on how broad the title is) a list of various shows that could be related to the intended search. Each return also lists a brief description of the specific show.  If the show is in fact the one they searched for the user can select add to my shows.  This button takes the specific show and adds it to the collection of the user's shows.  
