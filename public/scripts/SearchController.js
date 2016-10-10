@@ -1,4 +1,4 @@
-angular.module('tvApp').controller('SearchController', function($http,$rootScope){
+angular.module('tvApp').controller('SearchController', function($http,$rootScope,$mdToast){
   var vm = this;
 
 
