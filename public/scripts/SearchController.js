@@ -29,6 +29,8 @@ angular.module('tvApp').controller('SearchController', function($http,$rootScope
           vm.showArray.push(tempShow);
       }
     });
+
+    // console.log('searching');
   }
 
   //button function which adds selected show to users 'shows'
